@@ -19,7 +19,7 @@
 
 <h1 class='text-center'>Registrtion for IT Conference</h1>
 
-<form method="post" action="success.php">
+<form method="post" enctype="multipart/form-data" action="success.php">
   <div class="mb-3">
     <label for="firstName" class="form-label">First Name</label>
     <input required type="text" id="firstName" class="form-control" name="firstName">
@@ -50,6 +50,16 @@
     <input required type="text" class="form-control" id="phone" aria-describedby="phoneHelp" name="phone">
     <div id="phoneHelp" class="form-text">We'll never share your phone number with anyone else.</div>
   </div>
+  <div class="mb-3">
+    <label for="avatar" class="form-label">Upload a picture (Optional)</label>
+    <input type="file" class="form-control" accept="image/*" name="avatar" id="avatar">
+    <div id="avatar" class="form-text">This step is optional.</div>
+  </div>
+  <!-- <div class="mb-3">
+    <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar">
+    <label class="custom-file-label" for="avatar">Upload Image (Optional)</label>
+    <div id="avatar" class="form-text">The profile picture is optional.</div>
+  </div> -->
   <div class="d-grid gap-2">
     <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
   </div>

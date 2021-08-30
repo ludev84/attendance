@@ -11,7 +11,17 @@
     $contact = $_POST['phone'];
     $specialty_id = $_POST['specialty'];
 
-    $isSuccess = $crud->insert($fname, $lname, $dob, $email, $contact, $specialty_id);
+    // Handling profile picture uploaded in index.php (if it wasn't uploaded, set value as null)
+    $destination = null;
+    if($_FILES["avatar"]["name"]){
+      $orig_file = $_FILES["avatar"]["tmp_name"];
+      $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+      $target_dir = 'uploads/';
+      $destination = $target_dir . $contact . '.' . $ext;
+      move_uploaded_file($orig_file, $destination);
+    }
+    
+    $isSuccess = $crud->insert($fname, $lname, $dob, $email, $contact, $specialty_id, $destination);
 
     if($isSuccess){
       include 'includes/successmessage.php';
@@ -24,7 +34,10 @@
   $result = $crud->getSpecialtyDetails($specialty_id)
 ?>
 
+<img src="<?php echo empty($destination) ? 'uploads/blank.png' : $destination ?>" alt="User profile picture">
 
+<br>
+<br>
 
 <div class="card" style="width: 18rem;">
   <div class="card-body">
