@@ -1,13 +1,17 @@
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
       
-      <div id='footer'>
-        <?php echo 'Copyright ' . date('Y'); ?>
-      </div>
+      
     </div>
+    <!-- End main container from body -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="footer mt-auto py-3 bg-primary fixed-bottom">
+      <div class="container">
+        <p class="text-center text-white">Copyright &copy; - IT Conference Attendee System <?php echo 'Copyright ' . date('Y'); ?></p>
+      </div>
+    </footer>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
