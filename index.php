@@ -55,11 +55,6 @@
     <input type="file" class="form-control" accept="image/*" name="avatar" id="avatar">
     <div id="avatar" class="form-text">This step is optional.</div>
   </div>
-  <!-- <div class="mb-3">
-    <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar">
-    <label class="custom-file-label" for="avatar">Upload Image (Optional)</label>
-    <div id="avatar" class="form-text">The profile picture is optional.</div>
-  </div> -->
   <div class="d-grid gap-2">
     <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
   </div>
