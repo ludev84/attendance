@@ -1,3 +1,8 @@
+<?php
+  // This includes the session file. This file contains code that starts/resume a session.
+  // By having it in the header, it will be included on every page, allowing session capability to be used on every page across the website.
+  include 'includes/session.php'
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,17 +21,37 @@
   </head>
   <body>
     <div class="container">
+      <!-- Navbar Bootstrap 5 -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand" href="./">IT Conference</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" href="index.php">Home</a>
-              <a class="nav-link" href="viewrecords.php">View attendees</a>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="viewrecords.php">View attendees</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <?php if(!isset($_SESSION['userid'])){ ?>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                </li>
+              <?php } else{ ?>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#"> Hello <?php echo $_SESSION['username'] ?>! </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="logout.php">Logout</a>
+                </li>
+              <?php } ?>
+                  
+            </ul>
           </div>
         </div>
       </nav>

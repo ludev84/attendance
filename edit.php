@@ -1,6 +1,7 @@
 <?php
   $title = "Edit Record";
   require_once 'includes/header.php';
+  require_once 'includes/auth_check.php';
   require_once 'db/conn.php';
 
   //Get all specialties
@@ -15,7 +16,7 @@
 
 ?>
 
-<h1 class='text-center'>Edit Record</h1>
+<h1 class='text-center'> <?php echo $title ?> </h1>
 
 <form method="post" action="editpost.php">
   <input type="hidden" name="id" value=<?php echo $attendee['attendee_id'] ?> >
